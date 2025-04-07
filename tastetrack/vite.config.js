@@ -5,9 +5,8 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: 'index.html',
-                recipe: 'pages/recipe.html',
-                identify: 'pages/identify.html',
-                results: 'pages/results.html'
+                recipe: 'recipe.html',
+                identify: 'identify.html'
             }
         }
     }
