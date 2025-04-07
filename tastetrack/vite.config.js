@@ -5,9 +5,9 @@ export default defineConfig({
         outDir: 'build',
         rollupOptions: {
             input: {
-                main: 'index.html',
-                recipe: 'recipe.html',
-                identify: 'identify.html'
+                main: './index.html',
+                recipe: './recipe.html',
+                identify: './identify.html'
             }
         }
     }
