@@ -10,7 +10,7 @@
 }
 
 div#recipe-section {
-  background-color: var(--secondary-color);
+  background: linear-gradient(to top, var(--secondary-color), rgba(230, 229, 229, 0.067));
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -26,7 +26,13 @@ div#recipe-section {
   height: 200px;
   border: 1px solid #f1f1;
   perspective: 1000px;
+  position: relative;
+  margin-bottom: 20px;
+
 }
+
+
+
 
 .card-flip-inner {
   position: relative;
@@ -35,10 +41,20 @@ div#recipe-section {
   text-align: center;
   transition: transform 1s;
   transform-style: preserve-3d;
+  margin-bottom: 100px;
+
 }
 
 .card-flip:hover .card-flip-inner {
   transform: rotateY(180deg);
+}
+
+div.card-flip-inner {
+  z-index: 3;
+}
+
+div.card-flip-back {
+  z-index: 2;
 }
 
 #recipe-section,
@@ -48,17 +64,26 @@ div#recipe-section {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  margin-bottom: 100px;
+
+}
+
+.card-flip:hover {
+  z-index: 10;
 }
 
 #recipe-section {
-  background-color: #bbb;
+  background: radial-gradient(circle, var(--secondary-color), rgba(230, 229, 229, 0.067));
   color: black;
+  z-index: 2;
 }
 
 .card-flip-back {
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
+  margin-bottom: 100px;
+  z-index: 3;
 }
 
 .recipe-card {
@@ -99,6 +124,7 @@ body {
   color: var(--primary-color);
   min-height: 500px;
   min-width: 500px;
+
 }
 
 header {
