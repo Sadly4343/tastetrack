@@ -4,10 +4,16 @@ import { loadPartial } from "./api/utils.js";
 async function createDisplayRecipes(recipe) {
 
     const totalIngredients = recipe.missedIngredientCount + 1;
+
+    const cardFlip = document.createElement('div');
+    cardFlip.classList.add('card-flip');
+
+    const cardFlipInner = document.createElement('div');
+    cardFlipInner.classList.add('card-flip-inner');
     const card = document.createElement('div');
     card.classList.add('recipe-card');
-    card.innerHTML = `<img src="${recipe.image}" alt="${recipe.title}" loading=lazy>
-            <h2>${recipe.title}</h2> <button >Click Here</button> 
+    card.innerHTML = `
+            <img src="${recipe.image}" alt="${recipe.title}" loading=lazy><h2>${recipe.title}</h2>
             <p>Number of Ingredients: ${totalIngredients}
             <div class="likes">
             <button class="like-button" data-item-id="${recipe.id}"> ❤️ Like </button>
@@ -16,6 +22,10 @@ async function createDisplayRecipes(recipe) {
 
     const likeButton = card.querySelector(".like-button");
     const likeCount = card.querySelector(".like-count");
+
+    const cardFlipBack = document.createElement('div');
+    cardFlipBack.classList.add('card-flip-back');
+    cardFlipBack.innerHTML = `<p>Test</p>`
 
     likeButton.addEventListener('click', (event) => {
         const itemId = event.target.getAttribute('data-item-id');
@@ -35,7 +45,12 @@ async function createDisplayRecipes(recipe) {
         } event.target.disabled = true;
     });
 
-    document.querySelector('#recipe-section').appendChild(card);
+    cardFlipInner.appendChild(card);
+    cardFlipInner.appendChild(cardFlipBack);
+
+    cardFlip.appendChild(cardFlipInner);
+
+    document.querySelector('#recipe-section').appendChild(cardFlip);
 
 
 }
