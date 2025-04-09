@@ -1,6 +1,6 @@
 import { fetchRecipes } from "./api/recipeApi.js";
 import { fetchRecipeInformation } from "./api/recipeApi.js";
-import { loadPartial } from "./api/utils.js";
+
 
 async function createDisplayRecipes(recipe) {
 
@@ -50,10 +50,15 @@ async function createDisplayRecipes(recipe) {
 
 
 
+
+
     recipeButton.addEventListener('click', (event) => {
         const query = event.target.getAttribute('data-id');
         try {
             displayRecipeInformation(query);
+
+
+
         }
         catch (error) {
             console.error(error);
@@ -70,24 +75,54 @@ async function createDisplayRecipes(recipe) {
 
 }
 
-document.getElementById('search-button').addEventListener('click', async () => {
-    const query = document.getElementById('search').value;
-    if (!query) {
-        alert('Enter Ingredients');
-        return;
-    }
-    const container = document.getElementById('recipe-section');
-    container.innerHTML = '';
+async function createRecipe(recipe) {
 
-    displayRecipes(query);
-})
+
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    const modalInner = document.createElement('div');
+    modalInner.classList.add('modal-inner');
+
+    modalInner.innerHTML = `<span id="closeBtn" class="close">&times;</span><h2>${recipe.title}</h2>
+    <img class="modal-img" src="${recipe.image}" alt="${recipe.title}" loading=lazy>
+            <div class="info-container">
+                <div class="info"><p class="time">${recipe.readyInMinutes}</p><p>Minutes</p></div>
+                <div class="info"><p class="ingredients">${recipe.servings}</p><p>Servings</p></div>
+                <div class="info"><p class="serving">${recipe.extendedIngredients.length}</p><p>Ingredients</p></div>
+            </div>
+    <p>${recipe.instructions}</p>`
+
+
+    modal.appendChild(modalInner);
+    document.querySelector('#modal').appendChild(modal);
+
+    const closeBtn = modalInner.querySelector('#closeBtn');
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    })
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+
+    modal.style.display = 'block';
+
+
+}
+
+
+
 
 async function displayRecipeInformation(query) {
     const recipes = await fetchRecipeInformation(query);
-    createDisplayRecipes(recipes);
+    createRecipe(recipes);
 }
 
-async function displayRecipes(query) {
+export async function displayRecipes(query) {
 
     const recipes = await fetchRecipes(query);
     recipes.forEach(recipe => {
@@ -95,10 +130,4 @@ async function displayRecipes(query) {
     });
 }
 
-loadPartial('#header-section', '/src/components/header.html')
-loadPartial('#footer-section', '/src/components/footer.html')
-
-
-
-displayRecipes('egg');
 

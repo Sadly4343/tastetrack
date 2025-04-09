@@ -31,9 +31,12 @@ export async function fetchRecipeInformation(query) {
 
     try {
         const response = await fetch(url, options);
-        const result = await response.text();
+        const result = await response.json();
         console.log(result);
+        return result;
+
     } catch (error) {
         console.error(error);
+        return [];
     }
 };
