@@ -1,7 +1,7 @@
 
 import { displayRecipes } from "./recipe";
 import { loadPartial } from "./api/utils";
-
+import { createPagination } from "./pagination"
 
 
 document.getElementById('search-button').addEventListener('click', async () => {
@@ -23,5 +23,5 @@ loadPartial('#header-section', '/src/components/header.html')
 loadPartial('#footer-section', '/src/components/footer.html')
 
 
-
+createPagination();
 displayRecipes('egg'); 

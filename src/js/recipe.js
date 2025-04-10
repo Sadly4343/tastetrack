@@ -1,5 +1,6 @@
 import { fetchRecipes } from "./api/recipeApi.js";
 import { fetchRecipeInformation } from "./api/recipeApi.js";
+import { checkPagination, displayPage, createPagination } from "./pagination.js";
 
 
 async function createDisplayRecipes(recipe) {
@@ -125,9 +126,15 @@ async function displayRecipeInformation(query) {
 export async function displayRecipes(query) {
 
     const recipes = await fetchRecipes(query);
+    const container = document.getElementById('recipe-section')
+    container.innerHTML = '';
     recipes.forEach(recipe => {
         createDisplayRecipes(recipe);
     });
+
+    createPagination();
+    displayPage(1);
+    checkPagination();
 }
 
 

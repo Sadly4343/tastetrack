@@ -185,6 +185,12 @@ div.card-flip-back {
   z-index: 10;
 }
 
+button:disabled {
+  background-color: #ccc;
+  color: grey;
+  opacity: 0.6;
+}
+
 #recipe-section {
   background: radial-gradient(circle, var(--secondary-color), rgba(230, 229, 229, 0.067));
   color: black;
