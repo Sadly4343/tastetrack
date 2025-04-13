@@ -91,6 +91,7 @@ async function createRecipe(recipe) {
                 <div class="info"><p class="time">${recipe.readyInMinutes}</p><p>Minutes</p></div>
                 <div class="info"><p class="ingredients">${recipe.servings}</p><p>Servings</p></div>
                 <div class="info"><p class="serving">${recipe.extendedIngredients.length}</p><p>Ingredients</p></div>
+                <button type="button" id="saveWatchlist" class="saveWatchlist"">Add to WatchList</button>
             </div>
     <p>${recipe.instructions}</p>`
 
@@ -108,6 +109,19 @@ async function createRecipe(recipe) {
             modal.style.display = 'none';
         }
     });
+
+    const saveBtn = modalInner.querySelector('#saveWatchlist');
+
+    saveBtn.addEventListener('click', () => {
+        let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+
+        watchlist.push({
+            id: recipe.title,
+
+        });
+        localStorage.setItem('watchlist', JSON.stringify(watchlist));
+
+    })
 
 
     modal.style.display = 'block';

@@ -20,6 +20,39 @@ div#recipe-section {
 
 }
 
+.logo {
+  box-shadow: 5px 4px 8px black;
+}
+
+div.page {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-around;
+  width: 300px;
+}
+
+#page-numbers {
+  display: flex;
+  justify-content: center;
+  font-weight: bolder;
+}
+
+.page a {
+  background-color: #FFFDD0;
+  padding: 7px;
+  border: solid 2px black;
+  text-decoration: none;
+  font-weight: bolder;
+  color: black
+}
+
+.page a:hover {
+  background-color: #b9ecb9;
+  border: solid black 2px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
 .card-flip {
   background-color: transparent;
   width: 300px;
@@ -28,6 +61,7 @@ div#recipe-section {
   perspective: 1000px;
   position: relative;
   margin-bottom: 20px;
+
 
 }
 
@@ -102,6 +136,7 @@ div#recipe-section {
   margin-left: 5px;
   width: 25%;
   height: 30px;
+  background-color: #FFFDD0;
 
 }
 
@@ -234,7 +269,18 @@ button:disabled {
   width: 100%;
   height: auto;
   display: block;
+  box-shadow: 10px 10px 8px black;
 }
+
+.recipe-card img:hover {
+  box-shadow: -10px 0px 10px 0 black;
+  transition: box-shadow 0.5s ease 0.3s
+}
+
+.card-flip-back {
+  box-shadow: 10px 10px 8px black
+}
+
 
 
 body {

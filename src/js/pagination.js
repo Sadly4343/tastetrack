@@ -45,8 +45,8 @@ function checkPagination() {
     const totalPages = Math.ceil(cards.length / cardPerPage);
 
     pageNmbrs.textContent = `Page ${currentPage} of ${totalPages}`;
-    prevBtn.hidden = currentPage === 1;
-    nextBtn.hidden = currentPage === totalPages;
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
 }
 
 function createPagination() {
