@@ -11,7 +11,7 @@ export default defineConfig({
             input: {
                 main: resolve(__dirname, "index.html"),
                 recipe: resolve(__dirname, "recipe.html"),
-                identify: resolve(__dirname, "identify.html"),
+                identify: resolve(__dirname, "favorite.html"),
             }
         }
     }
