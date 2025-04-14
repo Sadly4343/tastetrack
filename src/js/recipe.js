@@ -91,9 +91,18 @@ async function createRecipe(recipe) {
                 <div class="info"><p class="time">${recipe.readyInMinutes}</p><p>Minutes</p></div>
                 <div class="info"><p class="ingredients">${recipe.servings}</p><p>Servings</p></div>
                 <div class="info"><p class="serving">${recipe.extendedIngredients.length}</p><p>Ingredients</p></div>
-                <button type="button" id="saveWatchlist" class="saveWatchlist"">Add to WatchList</button>
+    
+               
             </div>
-    <p>${recipe.instructions}</p>`
+        <div class="allergies">
+            <p>Gluten Free: ${recipe.glutenFree}</p>
+            <p>Vegan: ${recipe.vegan}</p>
+            <p>Vegetarian: ${recipe.vegetarian}</p>
+            <p>Healthy: ${recipe.veryHealthy}</p>
+        </div>
+     <p>${recipe.instructions}</p>
+     <p>Gluten Free: ${recipe.summary}</p>
+                     <button type="button" id="saveWatchlist" class="saveWatchlist"">Add to WatchList</button>`
 
 
     modal.appendChild(modalInner);
@@ -116,7 +125,9 @@ async function createRecipe(recipe) {
         let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
         watchlist.push({
-            id: recipe.title,
+            name: recipe.title,
+
+
 
         });
         localStorage.setItem('watchlist', JSON.stringify(watchlist));

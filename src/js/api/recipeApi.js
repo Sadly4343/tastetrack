@@ -1,6 +1,6 @@
 export async function fetchRecipes(query) {
 
-    const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${query}&number=1&ignorePantry=true&ranking=1`;
+    const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${query}&number=2&ignorePantry=true&ranking=1`;
     const options = {
         method: 'GET',
         headers: {
