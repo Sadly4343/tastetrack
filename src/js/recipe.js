@@ -14,7 +14,7 @@ async function createDisplayRecipes(recipe) {
     cardFlipInner.classList.add('card-flip-inner');
     const card = document.createElement('div');
     card.classList.add('recipe-card');
-    card.innerHTML = `<img src="${recipe.image}" alt="${recipe.title}" loading=lazy> </div>`;
+    card.innerHTML = `<img src="${recipe.image}" alt="${recipe.title}" width="312" height="231"> </div>`;
 
 
     const cardFlipBack = document.createElement('div');
@@ -136,6 +136,7 @@ async function createRecipe(recipe) {
             healthy: recipe.veryHealthy,
             instruction: recipe.instructions,
             summary: recipe.summary
+
 
         });
         localStorage.setItem('watchlist', JSON.stringify(watchlist));

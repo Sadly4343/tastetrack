@@ -1,5 +1,5 @@
 
-const cardPerPage = 2;
+const cardPerPage = 5;
 let currentPage = 1;
 
 function getContainer() {

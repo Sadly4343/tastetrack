@@ -19,7 +19,7 @@ function createRecipe(data) {
     const card = document.createElement('div');
     card.classList.add("card");
     card.innerHTML = `<span id="closeBtn" class="close">&times;</span><h2>${data.name}</h2>
-    <img class="modal-img" src="${data.image}" alt="${data.name}" loading=lazy>
+    <img class="modal-img" src="${data.image}" alt="${data.name}">
             <div class="info-container">
                 <div class="info"><p class="time">${data.minutes}</p><p>Minutes</p></div>
                 <div class="info"><p class="ingredients">${data.ingredients}</p><p>Servings</p></div>
