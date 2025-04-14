@@ -1,6 +1,6 @@
 
 
-import { loadPartial } from "./api/utils";
+import { loadPartial } from "./api/utils.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,5 +42,5 @@ function createRecipe(data) {
 
 
 
-loadPartial('#header-section', '/src/components/header.html')
-loadPartial('#footer-section', '/src/components/footer.html')
+loadPartial('#header-section', '/tastetrack/src/components/header.html')
+loadPartial('#footer-section', '/tastetrack/src/components/footer.html')

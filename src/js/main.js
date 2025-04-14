@@ -19,8 +19,8 @@ document.getElementById('search-button').addEventListener('click', async () => {
 
 
 
-loadPartial('#header-section', '/src/components/header.html')
-loadPartial('#footer-section', '/src/components/footer.html')
+loadPartial('#header-section', '/tastetrack/src/components/header.html')
+loadPartial('#footer-section', '/tastetrack/src/components/footer.html')
 
 
 createPagination();

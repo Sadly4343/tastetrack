@@ -1,10 +1,11 @@
 // filepath: c:\Users\Logan\tastetrack\tastetrack\vite.config.js
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
     root: "./",
-    base: "", // Use relative paths
+    base: "/tastetrack/", // Use relative paths
     build: {
         outDir: './dist',
         rollupOptions: {
@@ -14,5 +15,13 @@ export default defineConfig({
                 identify: resolve(__dirname, "favorite.html"),
             }
         }
-    }
+    },
+    plugins: [
+        viteStaticCopy({
+            targets: [
+                { src: "src/components", dest: "src" },
+                { src: "src/images", dest: "src" },
+            ]
+        })
+    ]
 });
