@@ -126,8 +126,16 @@ async function createRecipe(recipe) {
 
         watchlist.push({
             name: recipe.title,
-
-
+            image: recipe.image,
+            minutes: recipe.readyInMinutes,
+            servings: recipe.servings,
+            ingredients: recipe.extendedIngredients.length,
+            gluten: recipe.glutenFree,
+            vegan: recipe.vegan,
+            vegetarian: recipe.vegetarian,
+            healthy: recipe.veryHealthy,
+            instruction: recipe.instructions,
+            summary: recipe.summary
 
         });
         localStorage.setItem('watchlist', JSON.stringify(watchlist));
