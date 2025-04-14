@@ -14,4 +14,4 @@ import{l as n}from"./utils-D7H65duc.js";/* empty css              */document.add
             <p>Healthy: ${e.healthy}</p>
         </div>
      <p>${e.instructions}</p>
-     <p class="summary" >Gluten Free: ${e.summary}}</p>`,document.querySelector("#recipeContainer").appendChild(s)}n("#header-section","/src/components/header.html");n("#footer-section","/src/components/footer.html");
+     <p class="summary" >Gluten Free: ${e.summary}}</p>`,document.querySelector("#recipeContainer").appendChild(s)}n("#header-section","/tastetrack/src/components/header.html");n("#footer-section","/tastetrack/src/components/footer.html");
