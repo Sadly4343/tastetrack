@@ -1,3 +1,4 @@
+//Fetches Recipes based on Food Value
 export async function fetchRecipes(query) {
 
     const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${query}&number=2&ignorePantry=true&ranking=1`;
@@ -18,6 +19,8 @@ export async function fetchRecipes(query) {
         return [];
     }
 };
+
+//Fetches Recipe Information based on Food ID
 export async function fetchRecipeInformation(query) {
     const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${query}/information`;
     const options = {

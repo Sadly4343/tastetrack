@@ -1,8 +1,9 @@
+//Imports
 import { fetchRecipes } from "./api/recipeApi.js";
 import { fetchRecipeInformation } from "./api/recipeApi.js";
 import { checkPagination, displayPage, createPagination } from "./pagination.js";
 
-
+//Creates recipe cards dynamically
 async function createDisplayRecipes(recipe) {
 
     const totalIngredients = recipe.missedIngredientCount + 1;
@@ -52,7 +53,7 @@ async function createDisplayRecipes(recipe) {
 
 
 
-
+    //Adds eventlistener to learn more button.
     recipeButton.addEventListener('click', (event) => {
         const query = event.target.getAttribute('data-id');
         try {
@@ -76,15 +77,18 @@ async function createDisplayRecipes(recipe) {
 
 }
 
+
+//Creates Modal Recipe Card
 async function createRecipe(recipe) {
 
-
+    //Modal Creation
     const modal = document.createElement('div');
     modal.classList.add('modal');
 
     const modalInner = document.createElement('div');
     modalInner.classList.add('modal-inner');
 
+    //Modal Template Literal Card Information
     modalInner.innerHTML = `<span id="closeBtn" class="close">&times;</span><h2>${recipe.title}</h2>
     <img class="modal-img" src="${recipe.image}" alt="${recipe.title}" loading=lazy width="600" height="400">
             <div class="info-container">
@@ -108,19 +112,22 @@ async function createRecipe(recipe) {
     modal.appendChild(modalInner);
     document.querySelector('#modal').appendChild(modal);
 
+    //Adds closebtn eventlistener
     const closeBtn = modalInner.querySelector('#closeBtn');
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
     })
-
+    //Adds windows eventlistener
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             modal.style.display = 'none';
         }
     });
 
+    //Query selector to saveBtn
     const saveBtn = modalInner.querySelector('#saveWatchlist');
 
+    //Adds eventlistener to save and pushes values to localstorage
     saveBtn.addEventListener('click', () => {
         let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
@@ -153,12 +160,13 @@ async function createRecipe(recipe) {
 
 
 
-
+//Displays and shows recipe information
 async function displayRecipeInformation(query) {
     const recipes = await fetchRecipeInformation(query);
     createRecipe(recipes);
 }
 
+//Displays recipe to create display recipes.
 export async function displayRecipes(query) {
 
     const recipes = await fetchRecipes(query);
@@ -168,6 +176,7 @@ export async function displayRecipes(query) {
         createDisplayRecipes(recipe);
     });
 
+    //Callls Creates Pagination
     createPagination();
     displayPage(1);
     checkPagination();

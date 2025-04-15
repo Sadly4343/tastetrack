@@ -1,28 +1,34 @@
-
+//Global Variables
 const cardPerPage = 5;
 let currentPage = 1;
 
+//Helper Function for Pagination
 function getContainer() {
     return document.getElementById('recipe-section');
 }
 
+//Helper Function for Pagination
 function previousButton() {
     return document.getElementById('prev')
 }
 
+//Helper Function for Pagination
 function nextButton() {
     return document.getElementById('next')
 }
 
+//Helper Function for Pagination
 function pageNumbers() {
     return document.getElementById('page-numbers')
 }
 
+//Helper Function for Pagination
 function updateCards() {
     const cardContainer = getContainer();
     return Array.from(cardContainer.getElementsByClassName('card-flip'));
 }
 
+//Displays Cards and Displays Page
 function displayPage(page) {
     const cards = updateCards();
     const start = (page - 1) * cardPerPage;
@@ -36,6 +42,8 @@ function displayPage(page) {
     })
 
 }
+
+//Checks Card Values and Updates them.
 function checkPagination() {
     const pageNmbrs = pageNumbers();
     const prevBtn = previousButton();
@@ -49,6 +57,7 @@ function checkPagination() {
     nextBtn.disabled = currentPage === totalPages;
 }
 
+//Creates the Pagination an attaches eventlisteners to buttons
 function createPagination() {
     const prevBtn = previousButton();
     const nextBtn = nextButton();
@@ -74,7 +83,7 @@ function createPagination() {
 }
 
 
-
+//Exports functions to be used and values in other JS
 export {
     cardPerPage, currentPage, displayPage, checkPagination, createPagination
 };

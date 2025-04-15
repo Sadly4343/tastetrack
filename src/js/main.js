@@ -1,9 +1,9 @@
-
+//Imports
 import { displayRecipes } from "./recipe";
 import { loadPartial } from "./api/utils";
 import { createPagination } from "./pagination"
 
-
+//Attach EventListener to Search Button
 document.getElementById('search-button').addEventListener('click', async () => {
   const query = document.getElementById('search').value;
   if (!query) {
@@ -16,13 +16,7 @@ document.getElementById('search-button').addEventListener('click', async () => {
   displayRecipes(query);
 })
 
-
-
-
-
-
-
-
+//Loads Header Partial and AddEvent to Hamburger Menu Icon
 loadPartial('#header-section', '/tastetrack/src/components/header.html').then(() => {
   const hamburgerMenu = document.querySelector("#hamburger-menu");
   if (hamburgerMenu) {
@@ -32,8 +26,10 @@ loadPartial('#header-section', '/tastetrack/src/components/header.html').then(()
   }
 });
 
+//Loads Footer Partial
 loadPartial('#footer-section', '/tastetrack/src/components/footer.html');
 
+//Toggle Menu Function
 function toggleMenu() {
   const navMenu = document.querySelector("nav ul");
   const hamburgerX = document.querySelector("#hamburger-x");
@@ -51,6 +47,6 @@ function toggleMenu() {
 
 
 
-
+//Creates Pagination on page and Default DisplayRecipes() Call to fill Page.
 createPagination();
 displayRecipes('egg'); 
