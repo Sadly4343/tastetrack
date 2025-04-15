@@ -34,8 +34,8 @@ async function createDisplayRecipes(recipe) {
     likeButton.addEventListener('click', (event) => {
         const itemId = event.target.getAttribute('data-item-id');
 
-        if (localStorage.getItem(`liked - ${itemId} `)) {
-            alert("You've liked this!");
+        if (localStorage.getItem(`liked-${itemId}`)) {
+            alert("you liked this already!");
             let currentLikes = parseInt(likeCount.textContent, 10);
             likeCount.textContent = currentLikes + 1;
 
@@ -43,8 +43,8 @@ async function createDisplayRecipes(recipe) {
             let currentLikes = parseInt(likeCount.textContent, 10);
             likeCount.textContent = currentLikes + 1;
 
-            localStorage.setItem(`liked - ${itemId} `, true);
-            alert("you liked this already");
+            localStorage.setItem(`liked-${itemId}`, true);
+            alert("you like this!");
 
         } event.target.disabled = true;
     });
