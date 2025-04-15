@@ -26,7 +26,6 @@ document.getElementById('search-button').addEventListener('click', async () => {
 loadPartial('#header-section', '/tastetrack/src/components/header.html').then(() => {
   const hamburgerMenu = document.querySelector("#hamburger-menu");
   if (hamburgerMenu) {
-    console.log("hamburger menu found ")
     hamburgerMenu.addEventListener('click', () => {
       toggleMenu();
     });

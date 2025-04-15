@@ -14,7 +14,7 @@ async function createDisplayRecipes(recipe) {
     cardFlipInner.classList.add('card-flip-inner');
     const card = document.createElement('div');
     card.classList.add('recipe-card');
-    card.innerHTML = `<img src="${recipe.image}" alt="${recipe.title}" width="312" height="231"> </div>`;
+    card.innerHTML = `<img src="${recipe.image}" alt="${recipe.title}" width="600" height="400"> </div>`;
 
 
     const cardFlipBack = document.createElement('div');
@@ -86,7 +86,7 @@ async function createRecipe(recipe) {
     modalInner.classList.add('modal-inner');
 
     modalInner.innerHTML = `<span id="closeBtn" class="close">&times;</span><h2>${recipe.title}</h2>
-    <img class="modal-img" src="${recipe.image}" alt="${recipe.title}" loading=lazy>
+    <img class="modal-img" src="${recipe.image}" alt="${recipe.title}" loading=lazy width="600" height="400">
             <div class="info-container">
                 <div class="info"><p class="time">${recipe.readyInMinutes}</p><p>Minutes</p></div>
                 <div class="info"><p class="ingredients">${recipe.servings}</p><p>Servings</p></div>
