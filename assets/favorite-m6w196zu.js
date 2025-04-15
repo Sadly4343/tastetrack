@@ -16,6 +16,6 @@ import{l as i}from"./utils-CpSS0xmB.js";document.addEventListener("DOMContentLoa
          <ul id="ingredientContainer">
         ${t}
      </ul>
-     <p>${e.instructions}</p>
+     <p>${e.instruction}</p>
      <p class="summary" >Gluten Free: ${e.summary}}</p>
     `,document.querySelector("#recipeContainer").appendChild(n)}i("#header-section","/tastetrack/src/components/header.html").then(()=>{const e=document.querySelector("#hamburger-menu");e&&e.addEventListener("click",()=>{o()})});i("#footer-section","/tastetrack/src/components/footer.html");function o(){const e=document.querySelector("nav ul"),n=document.querySelector("#hamburger-x"),t=document.querySelector("#hamburger-equal");e.classList.toggle("menu-active"),n.classList.toggle("hidden"),t.classList.toggle("hidden")}
