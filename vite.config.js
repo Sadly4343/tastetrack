@@ -11,10 +11,12 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, "index.html"),
-                recipe: resolve(__dirname, "recipe.html"),
-                identify: resolve(__dirname, "favorite.html"),
+                favorite: resolve(__dirname, "favorite.html"),
             }
         }
+    },
+    server: {
+        open: "/",
     },
     plugins: [
         viteStaticCopy({
