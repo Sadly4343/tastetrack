@@ -46,7 +46,7 @@ function createRecipe(data) {
          <ul id="ingredientContainer">
         ${ingredientSteps}
      </ul>
-     <p>${data.instructions}</p>
+     <p>${data.instruction}</p>
      <p class="summary" >Gluten Free: ${data.summary}}</p>
     `;
 
