@@ -19,8 +19,38 @@ document.getElementById('search-button').addEventListener('click', async () => {
 
 
 
-loadPartial('#header-section', '/tastetrack/src/components/header.html')
-loadPartial('#footer-section', '/tastetrack/src/components/footer.html')
+
+
+
+
+loadPartial('#header-section', '/tastetrack/src/components/header.html').then(() => {
+  const hamburgerMenu = document.querySelector("#hamburger-menu");
+  if (hamburgerMenu) {
+    console.log("hamburger menu found ")
+    hamburgerMenu.addEventListener('click', () => {
+      toggleMenu();
+    });
+  }
+});
+
+loadPartial('#footer-section', '/tastetrack/src/components/footer.html');
+
+function toggleMenu() {
+  const navMenu = document.querySelector("nav ul");
+  const hamburgerX = document.querySelector("#hamburger-x");
+  const hamburgerEqual = document.querySelector("#hamburger-equal");
+
+
+  navMenu.classList.toggle("menu-active");
+
+
+  hamburgerX.classList.toggle("hidden");
+  hamburgerEqual.classList.toggle("hidden");
+}
+
+
+
+
 
 
 createPagination();

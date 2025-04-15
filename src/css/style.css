@@ -9,12 +9,27 @@
 
 }
 
+#hamburger-menu {
+  display: none;
+  /* Hidden by default */
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--primary-color);
+  z-index: 10;
+
+}
+
+
+
 div#recipe-section {
   background: linear-gradient(to top, var(--secondary-color), rgba(230, 229, 229, 0.067));
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 20px;
+  padding-bottom: 100px;
 
 
 }
@@ -114,7 +129,6 @@ div.allergies p {
   text-align: center;
   transition: transform 1s;
   transform-style: preserve-3d;
-  margin-bottom: 100px;
 
 }
 
@@ -249,15 +263,14 @@ div.card-flip-back {
   z-index: 2;
 }
 
+
 #recipe-section,
 .card-flip-back {
+  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 150px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  margin-bottom: 100px;
-  min-height: 600px;
-
 }
 
 .card-flip:hover {
@@ -275,22 +288,29 @@ button:disabled {
   color: black;
   z-index: 2;
   min-height: 500px;
+  position: relative;
 }
 
 .card-flip-back {
   color: white;
+  z-index: 3;
   transform: rotateY(180deg);
   margin-bottom: 100px;
-  z-index: 3;
   background-color: #1e3a8a;
-  /* Darker blue for better contrast */
   color: #ffffff;
-  /* White text for high contrast */
   z-index: 3;
-  /* Add padding for better readability */
   font-size: 14px;
-  /* Ensure text is legible */
   font-weight: bold;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-top: 5px solid black;
+  padding: 20px;
 }
 
 .recipe-card {
@@ -298,6 +318,8 @@ button:disabled {
   height: 100%;
   margin: 0 auto;
   background-color: #f2e9f7;
+  position: relative;
+  z-index: 2;
 
 }
 
@@ -370,6 +392,11 @@ h6 {
   font-family: var(--font-family-heading);
 }
 
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
 .link {
 
 
@@ -381,6 +408,27 @@ h6 {
 
 }
 
+ul li {
+  list-style-type: none;
+  text-align: center;
+}
+
+
+
+
+#hamburger-x {
+  display: inline;
+}
+
+#hamburger-equal {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+
 .link:hover {
   color: red;
   transform: scale(1.2);
@@ -390,4 +438,76 @@ h6 {
 
 .a:hover {
   animation: linkIn 3s ease;
+}
+
+@media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  #hamburger-menu {
+    display: block;
+    /* Show the hamburger menu on smaller screens */
+  }
+
+  nav li {
+    padding-top: 30px;
+  }
+
+
+  .nav ul {
+    display: none;
+    /* Hide the navigation menu by default */
+    flex-direction: column;
+  }
+
+  .nav ul.menu-active {
+    display: flex;
+    /* Show the navigation menu when active */
+  }
+
+  nav#nav-menu.nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul.menu-active {
+    padding: 0px;
+  }
+
+  div.social-media {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  div#header-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul.menu-active {
+    padding: none;
+  }
+
+  #header {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .social-media {
+    gap: 10px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+
+  .social-media img.social-icon {
+    width: 25px;
+    height: 25px;
+  }
 }

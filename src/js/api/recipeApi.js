@@ -1,10 +1,10 @@
 export async function fetchRecipes(query) {
 
-    const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${query}&number=5&ignorePantry=true&ranking=1`;
+    const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${query}&number=2&ignorePantry=true&ranking=1`;
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': '',
+            'x-rapidapi-key': '5cc3bd66acmsh84b895e12428c9fp1ffb72jsn41edcff63d37',
             'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
         }
     };
@@ -24,7 +24,7 @@ export async function fetchRecipeInformation(query) {
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': '',
+            'x-rapidapi-key': '5cc3bd66acmsh84b895e12428c9fp1ffb72jsn41edcff63d37',
             'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
         }
     };
