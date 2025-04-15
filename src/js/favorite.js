@@ -3,6 +3,8 @@
 import { loadPartial } from "./api/utils.js";
 
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const storedRecipe = localStorage.getItem("watchlist");
 
@@ -18,12 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
 function createRecipe(data) {
     const card = document.createElement('div');
     card.classList.add("card");
+
+    let ingredientSteps = "";
+    if (data.eachingredient && data.preparation && data.preparation.length > 0) {
+        data.eachingredient.forEach((ingredient, index) => {
+            ingredientSteps += `<li class="ingredient" >${ingredient}:  ${data.preparation[index]}`
+        })
+    }
     card.innerHTML = `<span id="closeBtn" class="close">&times;</span><h2>${data.name}</h2>
     <img class="modal-img" src="${data.image}" alt="${data.name}">
             <div class="info-container">
                 <div class="info"><p class="time">${data.minutes}</p><p>Minutes</p></div>
-                <div class="info"><p class="ingredients">${data.ingredients}</p><p>Servings</p></div>
-                <div class="info"><p class="serving">${data.servings}</p><p>Ingredients</p></div>
+                <div class="info"><p class="ingredients">${data.servings}</p><p>Servings</p></div>
+                <div class="info"><p class="serving">${data.ingredients}</p><p>Ingredients</p></div>
     
                
             </div>
@@ -33,11 +42,16 @@ function createRecipe(data) {
             <p>Vegetarian: ${data.vegetarian}</p>
             <p>Healthy: ${data.healthy}</p>
         </div>
+         <ul id="ingredientContainer">
+        ${ingredientSteps}
+     </ul>
      <p>${data.instructions}</p>
-     <p class="summary" >Gluten Free: ${data.summary}}</p>`;
+     <p class="summary" >Gluten Free: ${data.summary}}</p>
+    `;
 
     document.querySelector("#recipeContainer").appendChild(card);
 }
+
 
 
 

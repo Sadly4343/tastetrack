@@ -52,6 +52,7 @@ html {
   background-color: rgb(230, 225, 217);
   margin-top: 20px;
   border-radius: 15px;
+  min-height: 200px;
 }
 
 
@@ -381,8 +382,41 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   background: linear-gradient(to top, rgb(226, 186, 112), rgba(230, 229, 229, 0.067));
-  min-height: 600px;
+  min-height: 900px;
+  min-width: 400px;
+
 }
+
+p.summary {
+  min-height: 200px;
+  min-width: 50px;
+}
+
+.ingredient {
+  display: flex;
+  flex-direction: column;
+  font-weight: bolder;
+  justify-content: space-between;
+  margin: 0 auto;
+  background-color: white;
+  padding: 5px;
+  border: 5px solid lightblue;
+  border-radius: 10px;
+  font-weight: bolder;
+  margin: 2px;
+}
+
+#ingredientContainer {
+  display: flex;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+ul#ingredientContainer {
+  margin: 0;
+}
+
+
 
 h1,
 h2,

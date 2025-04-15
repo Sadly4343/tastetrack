@@ -1,8 +1,4 @@
 
-
-
-
-
 export async function loadPartial(selector, file) {
     try {
         const response = await fetch(file);
