@@ -48,5 +48,4 @@ function toggleMenu() {
 
 
 //Creates Pagination on page and Default DisplayRecipes() Call to fill Page.
-createPagination();
 displayRecipes('egg'); 

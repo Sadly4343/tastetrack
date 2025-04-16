@@ -33,6 +33,7 @@ function displayPage(page) {
     const cards = updateCards();
     const start = (page - 1) * cardPerPage;
     const end = start + cardPerPage;
+    console.log(start);
     cards.forEach((card, index) => {
         if (index >= start && index < end) {
             card.style.display = 'block';
@@ -53,6 +54,7 @@ function checkPagination() {
     const totalPages = Math.ceil(cards.length / cardPerPage);
 
     pageNmbrs.textContent = `Page ${currentPage} of ${totalPages}`;
+
     prevBtn.disabled = currentPage === 1;
     nextBtn.disabled = currentPage === totalPages;
 }
@@ -61,6 +63,7 @@ function checkPagination() {
 function createPagination() {
     const prevBtn = previousButton();
     const nextBtn = nextButton();
+
 
     prevBtn.addEventListener('click', () => {
         if (currentPage > 1) {
@@ -73,6 +76,7 @@ function createPagination() {
     nextBtn.addEventListener('click', () => {
         const cards = updateCards();
         const totalPages = Math.ceil(cards.length / cardPerPage);
+
         if (currentPage < totalPages) {
             currentPage++;
             displayPage(currentPage);

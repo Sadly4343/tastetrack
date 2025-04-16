@@ -90,7 +90,7 @@ async function createRecipe(recipe) {
 
     //Modal Template Literal Card Information
     modalInner.innerHTML = `<span id="closeBtn" class="close">&times;</span><h2>${recipe.title}</h2>
-    <img class="modal-img" src="${recipe.image}" alt="${recipe.title}" loading=lazy width="600" height="400">
+    <img class="modal-img" src="${recipe.image}" alt="${recipe.title}" width="600" height="400">
             <div class="info-container">
                 <div class="info"><p class="time">${recipe.readyInMinutes}</p><p>Minutes</p></div>
                 <div class="info"><p class="ingredients">${recipe.servings}</p><p>Servings</p></div>
@@ -175,11 +175,13 @@ export async function displayRecipes(query) {
     recipes.forEach(recipe => {
         createDisplayRecipes(recipe);
     });
-
-    //Callls Creates Pagination
     createPagination();
     displayPage(1);
     checkPagination();
+
+
 }
+
+
 
 
