@@ -1,4 +1,4 @@
-import{l as i}from"./utils-CpSS0xmB.js";document.addEventListener("DOMContentLoaded",()=>{const e=localStorage.getItem("watchlist");e&&JSON.parse(e).forEach(t=>{c(t)})});function c(e){const n=document.createElement("div");n.classList.add("card");let t="";e.eachingredient&&e.preparation&&e.preparation.length>0&&e.eachingredient.forEach((s,r)=>{t+=`<li class="ingredient" >${s}:  ${e.preparation[r]}`}),n.innerHTML=`<span id="closeBtn" class="close">&times;</span><h2>${e.name}</h2>
+import{l as i}from"./utils-BMdP2Mo5.js";document.addEventListener("DOMContentLoaded",()=>{const e=localStorage.getItem("watchlist");e&&JSON.parse(e).forEach(t=>{c(t)})});function c(e){const n=document.createElement("div");n.classList.add("card");let t="";e.eachingredient&&e.preparation&&e.preparation.length>0&&e.eachingredient.forEach((s,r)=>{t+=`<li class="ingredient" >${s}:  ${e.preparation[r]}`}),n.innerHTML=`<span id="closeBtn" class="close">&times;</span><h2>${e.name}</h2>
     <img class="modal-img" src="${e.image}" alt="${e.name}">
             <div class="info-container">
                 <div class="info"><p class="time">${e.minutes}</p><p>Minutes</p></div>
